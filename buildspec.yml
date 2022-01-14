@@ -15,12 +15,11 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 118875261478.dkr.ecr.us-east-1.amazonaws.com/nodeapp:latest
       - docker push 118875261478.dkr.ecr.us-east-1.amazonaws.com/nodeapp:latest
       - echo Writing image definitions file...
       - printf '[{"name":"nodeapp","imageUri":"%s"}]' $REPOSITORY_URI > imagedefinitions.json
