@@ -24,4 +24,5 @@ phases:
       - echo Writing image definitions file...
       - printf '[{"name":"nodeapp","imageUri":"%s"}]' $118875261478.dkr.ecr.us-east-1.amazonaws.com/nodeapp:latest > imagedefinitions.json
       - cat imagedefinitions.json 
-
+artifacts:
+    files: imagedefinitions.json
